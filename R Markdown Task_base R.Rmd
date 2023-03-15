@@ -1,0 +1,48 @@
+---
+title: "R Markdown Task"
+author: "-Idelson Mindo"
+date: "2022-10-04"
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    toc: true
+    number_sections: true
+    toc_float: true
+    df_print: paged
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+R has become the one of the best programming language to manipulate, analyse, visualize and produce report based on data. R Markdown is a file format for making dynamic documents with R. According to RStudio^[https://rmarkdown.rstudio.com/docs/articles/rmarkdown.html] an R Markdown document is written in markdown and contains chunks of embedded R code. For this exercise particularly we will be working with the MASS package in order to print and plot the object shrimp, as part of Data Programming with R assignment. 
+
+# Load the MASS package
+The initial step is to load the data from the package MASS available in "Modern Applied Statistics with S" (4th edition, 2002). So, to do that is necessary to install the MASS Package and import the library, additionally to export a Rmarkdown report as Pdf is necessary to install the Latex package and import the tinytex library, as described bellow: 
+```{r MASS_packages}
+#Install packages 
+#To install the packages bellow please remove the #
+#install.packages("tinytex")
+#tinytex::install_tinytex()
+#install.packages("MASS")
+
+#import packages
+library(MASS)
+library(tinytex)
+```
+
+# Print the object shrimp
+
+To print the loaded data, is necessary to use a function print, as illustrated bellow:
+```{r Object_shrimp}
+print (shrimp)
+#?shrimp
+```
+Based on the data printed is possible to verify that is a numeric vector with 18 determinations by different laboratories of the amount (percentage of the declared total weight) of shrimp in shrimp cocktail. This description is similar to the one given by King and Ryan 1976)^[F. J. King and J. J. Ryan (1976) Collaborative study of the determination of the amount of shrimp in shrimp cocktail. J. Off. Anal. Chem. 59, 644–649.] and Staudte and Sheather(1990)^[R. G. Staudte and S. J. Sheather (1990) Robust Estimation and Testing. Wiley.]
+
+# Show a simple plot of shrimp
+
+The plot bellow represents the percentage of the declared total weight of shrimp in shrimp cocktail.
+```{r plot}
+plot(shrimp)
+```
+
